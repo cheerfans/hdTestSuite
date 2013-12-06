@@ -34,7 +34,7 @@ HD-STB Test Suits
 
 将编辑好的patcher.js上传到EPG服务器上，附加到要调试的EPG页面上，或者使用script标签将patcher.js的内容插入到页面。
 清理服务器缓存，访问刚编辑过的EPG页面，出现下图消息，工具初始化成功。
-![初始化成功](images/init.png)
+![初始化成功](screenshot/init.png)
 
 ###功能
 工具在patcher.js自定义了_post方法和log方法：
