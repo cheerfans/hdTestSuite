@@ -12,7 +12,7 @@ HD-STB Test Suits
     xmlhttp.setRequestHeader('Content-Type', "application/x-www-form-urlencoded");
     xmlhttp.send("…");
 
-(标清机顶盒原则上也是支持form POST消息的，鉴于目前标清机顶盒版本比较稳定暂时没有考虑通过iframe提交消息这种方式是否使用所有标清机顶盒的问题。)
+(标清机顶盒原则上也是支持form POST消息的，鉴于目前标清机顶盒版本比较稳定暂时没有考虑通过iframe提交消息这种方式是否适用所有标清机顶盒的问题。)
 
 ###配置
 解压包放置到你电脑喜欢的位置，打开Terminal进入你放置的路径/src/目录，运行：node app.js
@@ -40,11 +40,11 @@ HD-STB Test Suits
 工具在patcher.js自定义了_post方法和log方法：
 
 ####初始化消息
-    _post("","NORMAL");
+    _post("","INIT");
 刚看到得初始化成功的消息通过_post方法实现，提醒页面加载成功，工具加载成功。
 
 ####一般自定义消息_
-    _post("一般自定义消息","NORMAL");_
+    _post("一般自定义消息","NORMAL");
 字是黑色的，一般自定义消息。
 
 ####节点消息
@@ -66,27 +66,28 @@ HD-STB Test Suits
 ####log方法
 log方法附加了检测简单对象类型的功能，当参数对象为相应简单的类型，消息会显示显示： *(对象类型)对象的值*
 
+
 `log("a");`
 
->```(String)a```
+>(String)a
 
 `log(10);`
 
->```(Number)10```
+>(Number)10
 
 `log(true);`
 
->```(Boolean)true```
+>(Boolean)true
 
 
 当对象为object时，log方法会遍历当前数组最上层的所有元素并显示其类型。
 
 `log({"name":"max", "age":21});`
 
->```(Object) => {name:(string)max, age:(number)21}```   
+>(Object) => {name:(string)max, age:(number)21} 
 
 
 `log(["a",1,["c","d"]]);`
 
->```(Array) => {0:(string)a, 1:(number)1, 2:(object)c,d}```
+>(Array) => {0:(string)a, 1:(number)1, 2:(object)c,d}
 
