@@ -5,7 +5,7 @@ HD-STB Test Suits
 
 一直以来EPG开发一部分工作就是多款机顶盒的适配，实际工作中由于机顶盒浏览器各个厂商有所不同，常常会出现一些莫名的bug，为了定位EPG页面在不同机顶盒上出现的bug问题，特别写了这个小工具，用于抓取机顶盒浏览器抛出的错误信息及我们自定义的调试信息
 
-##基本原理
+###基本原理
 通过使用所有高清机顶盒都支持的AJAX POST，将服务器上EPG页面try、catch到浏览器报错消息、自定义调试消息POST到客户端，以实现类似桌面浏览器开发者工具(firebug)console的功能。
     
     xmlhttp.open("POST", _debug_server_path, true);
