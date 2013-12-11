@@ -1,7 +1,7 @@
-hdTestSuits
+hdTestSuite
 ===========
 
-HD-STB Test Suits 
+HD-STB Test Suite 
 
 一直以来EPG开发一部分工作就是多款机顶盒的适配，实际工作中由于机顶盒浏览器各个厂商有所不同，常常会出现一些莫名的bug，为了定位EPG页面在不同机顶盒上出现的bug问题，特别写了这个小工具，用于抓取机顶盒浏览器抛出的错误信息及我们自定义的调试信息
 
