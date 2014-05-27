@@ -1,14 +1,13 @@
-
 /**
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , test = require('./routes/test')
-  , http = require('http')
-  , path = require('path');
+var express = require('express'),
+	routes = require('./routes'),
+	user = require('./routes/user'),
+	test = require('./routes/test'),
+	http = require('http'),
+	path = require('path');
 
 var app = express();
 
@@ -25,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
@@ -33,6 +32,20 @@ app.get('/users', user.list);
 app.all('/test', test.logs);
 
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+function getIPAdress() {
+	var interfaces = require('os').networkInterfaces();
+	for (var devName in interfaces) {
+		var iface = interfaces[devName];
+		for (var i = 0; i < iface.length; i++) {
+			var alias = iface[i];
+			if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+				return alias.address;
+			}
+		}
+	}
+}
+
+http.createServer(app).listen(app.get('port'), function() {
+	console.log("Service At: http://" + getIPAdress() + ":8989/test");
+	console.log('Express server listening on port ' + app.get('port'));
 });
